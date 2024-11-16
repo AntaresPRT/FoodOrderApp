@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Базовая тема приложения -->
+    <style name="Base.Theme.Food_project" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Цвет для светлой темы -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/white</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <!-- Основная тема приложения -->
+    <style name="Theme.Food_project" parent="Base.Theme.Food_project">
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
+    </style>
+</resources>
