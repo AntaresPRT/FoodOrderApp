@@ -1,9 +1,11 @@
 package ru.antares.food_project.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,6 +43,24 @@ class MainActivity : BaseActivity() {
         initTime()
         initBestFood()
         initCategory()
+        setVariables()
+    }
+
+    private fun setVariables() {
+        binding.cartBtn.setOnClickListener {
+            startActivity(Intent(this@MainActivity,CartActivity::class.java))
+        }
+        binding.searchBtn.setOnClickListener {
+            val searchText = binding.searchInput.text.toString().trim()
+            if(searchText.isNotEmpty()) {
+                val intent = Intent(this, ListFoodActivity::class.java)
+                intent.putExtra("text", searchText)
+                intent.putExtra("isSearch",true)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Поиск...", Toast.LENGTH_SHORT).show()
+            }
+         }
     }
 
     private fun initCategory() {
